@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FKI Industrial Training System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  /* HEADER */
+  header {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    height: 70px;
+  }
+
+  header .header-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+
+  header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between logos and title */
+  }
+
+  header .logo img {
+      height: 40px; /* same height for both logos */
+      width: auto;
+  }
+
+  .header-container .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  header nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  header nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+
+  header nav .login {
+    background-color: #9F5EB7;   /* purple button */
+    color: white;                /* white text */
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  header nav .login:hover {
+    background-color: #f3edf6;
+    color: #9F5EB7;
+  }
+
+  /* SPLIT SCREEN HERO */
+  .hero {
+    display: flex;
+    height: 100vh;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* LEFT SIDE */
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    background: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-left h1 {
+    font-size: 46px;
+    font-weight: 800;
+  }
+  .hero-left p {
+    font-size: 18px;
+    margin-top: 10px;
+    max-width: 500px;
+  }
+  .hero-left button {
+    margin-top: 25px;
+    padding: 14px 35px;
+    font-size: 17px;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    background-color: #9F5EB7;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .hero-left button:hover {
+    background-color: #8b4ca2;
+  }
+
+  /* RIGHT SIDE WITH FADE */
+  .hero-right {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+  }
+
+  /* Fade gradient overlay */
+  .fade-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(to left, rgba(255,255,255,0), #ffffff);
+    z-index: 3;
+  }
+
+  /* PURPOSE SECTION */
+  .purpose {
+    padding: 80px 60px;
+    background: white;
+    text-align: center;
+  }
+
+  .purpose h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  .purpose p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #555;
+  }
+
+  /* FEATURES SECTION */
+  .features {
+    padding: 70px 50px;
+    background: #f3edf6;
+    margin-bottom: -45px;
+  }
+
+  .features h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #5d3d6b;
+  }
+
+  .feature-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .feature-card {
+    width: 300px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 20px 0;
+    background: white;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-top: 50px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { flex-direction: column; height: auto; }
+    .hero-right { height: 300px; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="img/ums-logo.png" alt="UMS Logo">
+      <img src="img/fki-logo.png" alt="FKI Logo">
+      <!-- <span class="title">FKI Industrial Training System</span> -->
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="login.php" class="login">Login</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <h1>Welcome!<br>Let's set up your account.</h1>
+    <p>This platform guides your industrial training company selection with better insights, rankings, and faculty-approved choices.</p>
+    <button onclick="window.location.href='register.php'">Get Started</button>
+  </div>
+
+  <div class="hero-right">
+    <img src="img/landing.jpeg" alt="Illustration" class="hero-image">
+
+    <!-- The fade into white -->
+    <div class="fade-overlay"></div>
+  </div>
+
+</section>
+
+<!-- PURPOSE -->
+<section class="purpose">
+  <h2>What is the Purpose of This System?</h2>
+  <p>
+    Our goal is to help FKI students make smarter and more confident decisions when selecting internship companies.
+    With features such as company ranking, opportunity browsing, and lecturer approval workflow, we ensure your choices meet academic requirements while giving you full control.
+  </p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2>How This System Helps You</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Company Ranking</h3>
+      <p>View top-rated internship companies based on feedback from previous students.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>BLI-01 Digital Form</h3>
+      <p>Fill your 20 preferred companies online fast, easy, paperless.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Search Opportunities</h3>
+      <p>Browse companies, locations, industries, and available internship roles.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Student–Supervisor Workflow</h3>
+      <p>Supervisors review and approve submitted choices for a smooth process.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 FKI Industrial Training System. All Rights Reserved.
+</footer>
+
+</body>
+</html>
